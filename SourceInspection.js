@@ -146,7 +146,7 @@ var SourceInspection = function(filename, proc, port) {
     var postProcessing = function() {
       // parse heap & global / local values to fit the output format by OPT
       var renderResult = ReferenceParser.renderOPTFormat(refValues, variables);
-      // console.log(' function names ', func_refs);
+      console.log(' function names ', func_refs);
       stepData['func_name'] =
         ReferenceParser.extractFuncName(refValues[func_refs[0].ref].source);
       stepData['ordered_globals'] = Object.keys(variables[0]).sort();
@@ -156,8 +156,8 @@ var SourceInspection = function(filename, proc, port) {
       for (var i = 1; i < func_refs.length; i++) {
         // higher stack level
         var stackInfo = {};
-        // console.log(func_refs[i]);
-        // console.log(refValues[func_refs[i].ref]);
+        console.log(func_refs[i]);
+        console.log(refValues[func_refs[i].ref]);
         stackInfo['func_name'] =
           ReferenceParser.extractFuncName(refValues[func_refs[i].ref].source);
         stackInfo['encoded_locals'] = renderResult.variableDicts[i];

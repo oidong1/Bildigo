@@ -1,4 +1,4 @@
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 8082;
 
 console.log(PORT);
 
@@ -15,21 +15,19 @@ var Inspector = require('./static_backend.js');
 
 server.listen(PORT);
 
-console.log('blah blah');
-
 app.use('/codemirror', express.static(__dirname + '/codemirror'));
 app.use('/js', express.static(__dirname + '/js'));
 app.use('/css', express.static(__dirname + '/css'));
 app.use('/example-code', express.static(__dirname + '/example-code'));
 
 app.get('/', function(req, res) {
-  res.sendfile('visualize.html');
+  res.sendfile('index.html');
 });
 
 app.get('/exec', function(req, res) {
   var user_script = req.query.user_script;
   Inspector.inspect(user_script, function(resp) {
-    // console.log(util.inspect(resp, false, null));
+    console.log(util.inspect(resp, false, null)); //これをいじる
     res.json(200, resp);
   });
 });

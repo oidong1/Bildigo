@@ -15,7 +15,7 @@ var SourceExecution = function() {
       ]);
       var debugReady = false;
       user_program.stdout.on('data', function(data) {
-        // console.log('==== OUT: ', data);
+        console.log('==== OUT: ', data);
         user_program.emit('output', '' +  data);
       });
       user_program.stderr.on('data', function(data) {

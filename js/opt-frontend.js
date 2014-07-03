@@ -26,14 +26,6 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 */
 
-
-// Pre-reqs: pytutor.js and jquery.ba-bbq.min.js should be imported BEFORE this file
-
-
-// backend scripts to execute (Python 2 and 3 variants, if available)
-//var python2_backend_script = 'web_exec_py2.py';
-//var python3_backend_script = 'web_exec_py3.py';
-
 // uncomment below if you're running on Google App Engine using the built-in app.yaml
 var python2_backend_script = 'exec';
 var python3_backend_script = null;
@@ -54,10 +46,10 @@ function enterEditMode() {
 }
 
 
-var pyInputCodeMirror; // CodeMirror object that contains the input text
+var code; // CodeMirror object that contains the input text
 
 function setCodeMirrorVal(dat) {
-  pyInputCodeMirror.setValue(dat.rtrim() /* kill trailing spaces */);
+  code.setValue(dat.rtrim() /* kill trailing spaces */);
   $('#urlOutput,#embedCodeOutput').val('');
 
   // also scroll to top to make the UI more usable on smaller monitors
@@ -69,7 +61,7 @@ $(document).ready(function() {
 
   $("#embedLinkDiv").hide();
 
-  pyInputCodeMirror = CodeMirror(document.getElementById('codeInputPane'), {
+  code = CodeMirror(document.getElementById('code'), {
     mode: 'javascript',
     lineNumbers: true,
     tabSize: 4,
@@ -78,7 +70,7 @@ $(document).ready(function() {
     extraKeys: {Tab: function(cm) {cm.replaceSelection("    ", "end");}}
   });
 
-  pyInputCodeMirror.setSize(null, '420px');
+  code.setSize(null, '420px');
 
 
 
@@ -103,7 +95,7 @@ $(document).ready(function() {
 
       $("#embedLinkDiv").show();
 
-      $('#executeBtn').html("Visualize execution");
+      $('#executeBtn').html("done");
       $('#executeBtn').attr('disabled', false);
 
 
@@ -135,11 +127,11 @@ $(document).ready(function() {
 
 
     $.get(backend_script,
-          {user_script : pyInputCodeMirror.getValue(),
+          {user_script : document.getElementById("code").value,
            cumulative_mode: $('#cumulativeModeSelector').val()},
           function(dataFromBackend) {
             var trace = dataFromBackend.trace;
-            
+          console.log(trace);
             // don't enter visualize mode if there are killer errors:
             if (!trace ||
                 (trace.length == 0) ||
@@ -148,14 +140,14 @@ $(document).ready(function() {
               if (trace.length == 1) {
                 var errorLineNo = trace[0].line - 1; /* CodeMirror lines are zero-indexed */
                 if (errorLineNo !== undefined) {
-                  // highlight the faulting line in pyInputCodeMirror
-                  pyInputCodeMirror.focus();
-                  pyInputCodeMirror.setCursor(errorLineNo, 0);
-                  pyInputCodeMirror.setLineClass(errorLineNo, null, 'errorLine');
+                  // highlight the faulting line in code
+                  code.focus();
+                  code.setCursor(errorLineNo, 0);
+                  code.setLineClass(errorLineNo, null, 'errorLine');
 
-                  pyInputCodeMirror.setOption('onChange', function() {
-                    pyInputCodeMirror.setLineClass(errorLineNo, null, null); // reset line back to normal
-                    pyInputCodeMirror.setOption('onChange', null); // cancel
+                  code.setOption('onChange', function() {
+                    code.setLineClass(errorLineNo, null, null); // reset line back to normal
+                    code.setOption('onChange', null); // cancel
                   });
                 }
 
@@ -168,7 +160,7 @@ $(document).ready(function() {
                 alert("Whoa, unknown error! Reload to try again, or report a bug to philip@pgbovine.net\n\n(Click the 'Generate URL' button to include a unique URL in your email bug report.)");
               }
 
-              $('#executeBtn').html("Visualize execution");
+              $('#executeBtn').html("done");
               $('#executeBtn').attr('disabled', false);
             }
             else {
@@ -222,227 +214,6 @@ $(document).ready(function() {
 
 
 
-  // canned examples
-
-  $("#tutorialExampleLink").click(function() {
-    $.get("example-code/py_tutorial.txt", setCodeMirrorVal);
-    return false;
-  });
-
-  $("#strtokExampleLink").click(function() {
-    $.get("example-code/strtok.txt", setCodeMirrorVal);
-    return false;
-  });
-
-  $("#listCompLink").click(function() {
-    $.get("example-code/list-comp.txt", setCodeMirrorVal);
-    return false;
-  });
-
-  $("#fibonacciExampleLink").click(function() {
-    $.get("example-code/fib.txt", setCodeMirrorVal);
-    return false;
-  });
-
-  $("#memoFibExampleLink").click(function() {
-    $.get("example-code/memo_fib.txt", setCodeMirrorVal);
-    return false;
-  });
-
-  $("#factExampleLink").click(function() {
-    $.get("example-code/fact.txt", setCodeMirrorVal);
-    return false;
-  });
-
-  $("#filterExampleLink").click(function() {
-    $.get("example-code/filter.txt", setCodeMirrorVal);
-    return false;
-  });
-
-  $("#insSortExampleLink").click(function() {
-    $.get("example-code/ins_sort.txt", setCodeMirrorVal);
-    return false;
-  });
-
-  $("#aliasExampleLink").click(function() {
-    $.get("example-code/intro.txt", setCodeMirrorVal);
-    return false;
-  });
-
-  $("#happyExampleLink").click(function() {
-    $.get("example-code/happy.txt", setCodeMirrorVal);
-    return false;
-  });
-
-  $("#newtonExampleLink").click(function() {
-    $.get("example-code/sqrt.txt", setCodeMirrorVal);
-    return false;
-  });
-
-  $("#oopSmallExampleLink").click(function() {
-    $.get("example-code/oop_small.txt", setCodeMirrorVal);
-    return false;
-  });
-
-  $("#mapExampleLink").click(function() {
-    $.get("example-code/map.txt", setCodeMirrorVal);
-    return false;
-  });
-
-  $("#oop1ExampleLink").click(function() {
-    $.get("example-code/oop_1.txt", setCodeMirrorVal);
-    return false;
-  });
-
-  $("#oop2ExampleLink").click(function() {
-    $.get("example-code/oop_2.txt", setCodeMirrorVal);
-    return false;
-  });
-
-  $("#inheritanceExampleLink").click(function() {
-    $.get("example-code/oop_inherit.txt", setCodeMirrorVal);
-    return false;
-  });
-
-  $("#sumExampleLink").click(function() {
-    $.get("example-code/sum.txt", setCodeMirrorVal);
-    return false;
-  });
-
-  $("#pwGcdLink").click(function() {
-    $.get("example-code/wentworth_gcd.txt", setCodeMirrorVal);
-    return false;
-  });
-
-  $("#pwSumListLink").click(function() {
-    $.get("example-code/wentworth_sumList.txt", setCodeMirrorVal);
-    return false;
-  });
-
-  $("#towersOfHanoiLink").click(function() {
-    $.get("example-code/towers_of_hanoi.txt", setCodeMirrorVal);
-    return false;
-  });
-
-  $("#pwTryFinallyLink").click(function() {
-    $.get("example-code/wentworth_try_finally.txt", setCodeMirrorVal);
-    return false;
-  });
-
-  $("#sumCubesLink").click(function() {
-    $.get("example-code/sum-cubes.txt", setCodeMirrorVal);
-    return false;
-  });
-
-  $("#decoratorsLink").click(function() {
-    $.get("example-code/decorators.txt", setCodeMirrorVal);
-    return false;
-  });
-
-  $("#genPrimesLink").click(function() {
-    $.get("example-code/gen_primes.txt", setCodeMirrorVal);
-    return false;
-  });
-
-  $("#genExprLink").click(function() {
-    $.get("example-code/genexpr.txt", setCodeMirrorVal);
-    return false;
-  });
-
-
-  $('#closure1Link').click(function() {
-    $.get("example-code/closures/closure1.txt", setCodeMirrorVal);
-    return false;
-  });
-  $('#closure2Link').click(function() {
-    $.get("example-code/closures/closure2.txt", setCodeMirrorVal);
-    return false;
-  });
-  $('#closure3Link').click(function() {
-    $.get("example-code/closures/closure3.txt", setCodeMirrorVal);
-    return false;
-  });
-  $('#closure4Link').click(function() {
-    $.get("example-code/closures/closure4.txt", setCodeMirrorVal);
-    return false;
-  });
-  $('#closure5Link').click(function() {
-    $.get("example-code/closures/closure5.txt", setCodeMirrorVal);
-    return false;
-  });
-  $('#lambdaParamLink').click(function() {
-    $.get("example-code/closures/lambda-param.txt", setCodeMirrorVal);
-    return false;
-  });
-  $('#tortureLink').click(function() {
-    $.get("example-code/closures/student-torture.txt", setCodeMirrorVal);
-    return false;
-  });
-
-
-
-  $('#aliasing1Link').click(function() {
-    $.get("example-code/aliasing/aliasing1.txt", setCodeMirrorVal);
-    return false;
-  });
-  $('#aliasing2Link').click(function() {
-    $.get("example-code/aliasing/aliasing2.txt", setCodeMirrorVal);
-    return false;
-  });
-  $('#aliasing3Link').click(function() {
-    $.get("example-code/aliasing/aliasing3.txt", setCodeMirrorVal);
-    return false;
-  });
-  $('#aliasing4Link').click(function() {
-    $.get("example-code/aliasing/aliasing4.txt", setCodeMirrorVal);
-    return false;
-  });
-  $('#aliasing5Link').click(function() {
-    $.get("example-code/aliasing/aliasing5.txt", setCodeMirrorVal);
-    return false;
-  });
-  $('#aliasing6Link').click(function() {
-    $.get("example-code/aliasing/aliasing6.txt", setCodeMirrorVal);
-    return false;
-  });
-  $('#aliasing7Link').click(function() {
-    $.get("example-code/aliasing/aliasing7.txt", setCodeMirrorVal);
-    return false;
-  });
-  $('#aliasing8Link').click(function() {
-    $.get("example-code/aliasing/aliasing8.txt", setCodeMirrorVal);
-    return false;
-  });
-
-
-  $('#ll1Link').click(function() {
-    $.get("example-code/linked-lists/ll1.txt", setCodeMirrorVal);
-    return false;
-  });
-  $('#ll2Link').click(function() {
-    $.get("example-code/linked-lists/ll2.txt", setCodeMirrorVal);
-    return false;
-  });
-  $('#sumListLink').click(function() {
-    $.get("example-code/sum-list.txt", setCodeMirrorVal);
-    return false;
-  });
-
-  $('#varargsLink').click(function() {
-    $.get("example-code/varargs.txt", setCodeMirrorVal);
-    return false;
-  });
-
-  $('#forElseLink').click(function() {
-    $.get("example-code/for-else.txt", setCodeMirrorVal);
-    return false;
-  });
-
-  $('#nonlocalLink').click(function() {
-    $.get("example-code/nonlocal.txt", setCodeMirrorVal);
-    return false;
-  });
-
 
   // handle hash parameters passed in when loading the page
   preseededCode = $.bbq.getState('code');
@@ -476,7 +247,7 @@ $(document).ready(function() {
   $(document).ajaxError(function() {
     alert("Server error (possibly due to memory/resource overload). Report a bug to philip@pgbovine.net\n\n(Click the 'Generate URL' button to include a unique URL in your email bug report.)");
 
-    $('#executeBtn').html("Visualize execution");
+    $('#executeBtn').html("ReExecution");
     $('#executeBtn').attr('disabled', false);
   });
 
@@ -489,7 +260,7 @@ $(document).ready(function() {
   });
 
   $('#genUrlBtn').bind('click', function() {
-    var myArgs = {code: pyInputCodeMirror.getValue(),
+    var myArgs = {code: code.getValue(),
                   mode: appMode,
                   cumulative: $('#cumulativeModeSelector').val()};
 
@@ -504,7 +275,7 @@ $(document).ready(function() {
 
   $('#genEmbedBtn').bind('click', function() {
     assert(appMode == 'display');
-    var myArgs = {code: pyInputCodeMirror.getValue(),
+    var myArgs = {code: code.getValue(),
                   cumulative: $('#cumulativeModeSelector').val(),
                   curInstr: myVisualizer.curInstr,
                  };
