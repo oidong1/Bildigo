@@ -31,6 +31,8 @@ var python2_backend_script = 'exec';
 var python3_backend_script = null;
 var backend_script = 'exec';
 
+var markedLine;
+
 var appMode = 'edit'; // 'edit' or 'display'
 
 var preseededCode = null;     // if you passed in a 'code=<code string>' in the URL, then set this var
@@ -98,11 +100,6 @@ $(document).ready(function() {
       $('#executeBtn').html("done");
       $('#executeBtn').attr('disabled', false);
 
-
-      // do this AFTER making #pyOutputPane visible, or else
-      // jsPlumb connectors won't render properly
-      myVisualizer.updateOutput();
-
       // customize edit button click functionality AFTER rendering (NB: awkward!)
       $('#pyOutputPane #editCodeLinkDiv').show();
       $('#pyOutputPane #editBtn').click(function() {
@@ -131,7 +128,6 @@ $(document).ready(function() {
            cumulative_mode: $('#cumulativeModeSelector').val()},
           function(dataFromBackend) {
             var trace = dataFromBackend.trace;
-          console.log(trace);
             // don't enter visualize mode if there are killer errors:
             if (!trace ||
                 (trace.length == 0) ||
@@ -161,7 +157,7 @@ $(document).ready(function() {
               }
 
               $('#executeBtn').html("done");
-              $('#executeBtn').attr('disabled', false);
+              $('#executeBtn').attr('disabled', true);
             }
             else {
               var startingInstruction = 0;
@@ -179,7 +175,13 @@ $(document).ready(function() {
                                                       //allowEditAnnotations: true,
                                                      });
 
+              $("#next").on("click", function () {
+                myVisualizer.stepper(1);
+              });
 
+              $("#prev").on("click", function () {
+                myVisualizer.stepper(-1);
+              });
               // set keyboard bindings
               $(document).keydown(function(k) {
                 if (!keyStuckDown) {
