@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bildigo</title>
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+            <script src="js/codemirror.js"></script>
+            <link rel="stylesheet" href="css/codemirror.css">
+            <script src="js/javascript/javascript.js"></script>
+            <script src="js/jquery.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/d3.min.js" charset="utf-8"></script>
+            <script src="js/hanabi.js"></script>
+            <link href="css/style.css" rel="stylesheet">
+        </head>
+        <body>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9 col-md-push-3 max" id="right">
+                        <div id = "canvas"></div>
+                    </div>
+                    <div class="col-md-3 col-md-pull-9">
+                        <h1>Bildigo</h1>
+                        <p>Visualizing JavaScript</p>
+                        <textarea id="code" name="code">
+var a = "A";
+
+a = 1;
+
+if(a > 0) {
+    a = a + 1;
+} else {
+    a = a - 1;
+}
+
+for(var i = 0; i < 5; i++) {
+    a = a + 1;
+}
+                       
+                        </textarea>
+                        <button type="button" class="btn btn-primary" id="executeBtn">execute</button>
+                        <button type="button" class="btn btn-warning" id="prev">←prev</button>
+                        <button type="button" class="btn btn-success" id="next">next→</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/main.js"></script>
+        <script type="text/javascript" src="js/bildigo.js"></script>
+        <script type="text/javascript" src="js/opt-frontend.js"></script>
+        <script src="js/hanabi_exec.js"></script>
+    </body>
+</html>
