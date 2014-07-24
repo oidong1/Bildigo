@@ -1,0 +1,583 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"rg",
+				"rgba()"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"bak",
+				"background-image"
+			],
+			[
+				"dis",
+				"displayVar"
+			],
+			[
+				"hi",
+				"hiData"
+			],
+			[
+				"step",
+				"stepCount"
+			],
+			[
+				"js",
+				"jsonData"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"user",
+				"userGetTask"
+			],
+			[
+				"use",
+				"userGetTask"
+			],
+			[
+				"resu",
+				"resultMin"
+			],
+			[
+				"result",
+				"resultHour"
+			],
+			[
+				"data",
+				"data"
+			],
+			[
+				"e",
+				"equal"
+			],
+			[
+				"raku",
+				"rakutan"
+			],
+			[
+				"re",
+				"response"
+			],
+			[
+				"comm",
+				"comment"
+			],
+			[
+				"res",
+				"response"
+			],
+			[
+				"us",
+				"user"
+			],
+			[
+				"m",
+				"message"
+			],
+			[
+				"comment",
+				"comments"
+			],
+			[
+				"ra",
+				"rakutans"
+			],
+			[
+				"lo",
+				"logins"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"rak",
+				"rakutanComment"
+			],
+			[
+				"A",
+				"Array"
+			],
+			[
+				"check",
+				"checkList"
+			],
+			[
+				"che",
+				"checkList"
+			],
+			[
+				"el",
+				"elif	Else if"
+			],
+			[
+				"up",
+				"update"
+			],
+			[
+				"ch",
+				"checkList"
+			],
+			[
+				"Che",
+				"checkList"
+			],
+			[
+				"co",
+				"comments"
+			],
+			[
+				"comme",
+				"commentId"
+			],
+			[
+				"rakutan",
+				"Rakutan"
+			],
+			[
+				"Ra",
+				"RakutanComment"
+			],
+			[
+				"follo",
+				"followed_by"
+			],
+			[
+				"red",
+				"redirectURL"
+			],
+			[
+				"redu",
+				"redirectURL"
+			],
+			[
+				"app",
+				"appID"
+			],
+			[
+				"a",
+				"auth"
+			],
+			[
+				"random",
+				"randomEmail"
+			],
+			[
+				"rand",
+				"randomName"
+			],
+			[
+				"rakuta",
+				"RakutanFeed"
+			],
+			[
+				"User",
+				"UserSchema"
+			],
+			[
+				"Use",
+				"UserSchema"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Users/oidong/Downloads/hanabi-master/public/index.html",
+			"settings":
+			{
+				"buffer_size": 1126,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/Processing/Processing.sublime-build",
+	"command_palette":
+	{
+		"height": 400.0,
+		"selected_items":
+		[
+			[
+				"i",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 484.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/oidong/Projects/jstutor/server.js",
+		"/Users/oidong/Downloads/hanabi-master/public/hanabi.js",
+		"/Users/oidong/Desktop/itBasic/js/summer.js",
+		"/Users/oidong/Desktop/itBasic/it.sublime-project",
+		"/Users/oidong/Desktop/itBasic/css/style.css",
+		"/Users/oidong/Desktop/itBasic/index.html",
+		"/Users/oidong/Library/Application Support/Sublime Text 2/Packages/User/SublimeServer.sublime-settings",
+		"/Users/oidong/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/oidong/Desktop/itBasic/js/jquery.jaticker_1.0.0.js",
+		"/Users/oidong/Desktop/ITBasic 2 2/cal_marjong_cmp.js",
+		"/Users/oidong/statbasic/0000.dat",
+		"/Users/oidong/Projects/bildigo/index.html",
+		"/Users/oidong/Projects/jstutor/js/main.js",
+		"/Users/oidong/Projects/bildigo/js/main.js",
+		"/Users/oidong/Projects/jstutor/visualize.html",
+		"/Users/oidong/Projects/jstutor/js/codemirror.js",
+		"/Users/oidong/Projects/jstutor/ReferenceParser.js",
+		"/Users/oidong/Projects/jstutor/tmp.js",
+		"/Users/oidong/Projects/jstutor/static_backend.js",
+		"/Users/oidong/Projects/jstutor/SourceManagement.js",
+		"/Users/oidong/Projects/jstutor/SourceExecution.js",
+		"/Users/oidong/Projects/jstutor/SourceInspection.js",
+		"/Users/oidong/Projects/jstutor/lib/debugger.js",
+		"/Users/oidong/Projects/rankers/app.js",
+		"/Users/oidong/Projects/bildigo/bildigo.pde",
+		"/Users/oidong/Projects/esprimaBox/test.js",
+		"/Users/oidong/Projects/cookpad/p2.js",
+		"/Users/oidong/Projects/cookpad/p1.js",
+		"/Users/oidong/Projects/cookpad/p1.rb",
+		"/Users/oidong/Desktop/itBasic/ex05-11.html",
+		"/Users/oidong/Projects/kirakira/js/main.js",
+		"/Users/oidong/Projects/kirakira/js/uglifyjs.js",
+		"/Users/oidong/Projects/kirakira/data_box.html",
+		"/Users/oidong/Projects/kirakira/kirakira_javascript.html",
+		"/Users/oidong/Library/Application Support/Google/Chrome/Default/Extensions/fjnbnpbmkenffdnngjfgmeleoegfcffe/1.2.2_0/apply.js",
+		"/Users/oidong/Library/Application Support/Google/Chrome/Default/Extensions/ondgjlcppndlgddpalgagmfakbgomljh/1.9_0/manifest.json",
+		"/Users/oidong/Library/Application Support/Google/Chrome/Default/Extensions/ondgjlcppndlgddpalgagmfakbgomljh/1.9_0/background.js",
+		"/Users/oidong/Library/Application Support/Google/Chrome/Default/Extensions/ondgjlcppndlgddpalgagmfakbgomljh/1.9_0/custom.css",
+		"/Users/oidong/Library/Application Support/Google/Chrome/Default/Extensions/ondgjlcppndlgddpalgagmfakbgomljh/1.9_0/jquery.js",
+		"/Users/oidong/Library/Application Support/Google/Chrome/Default/Extensions/ondgjlcppndlgddpalgagmfakbgomljh/1.9_0/wellness_custom.js",
+		"/Users/oidong/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/oidong/Projects/social-path/views/index.coffee",
+		"/Users/Shared/Dropbox/d3Sandbox/base.html",
+		"/Users/oidong/Projects/tsukumo/index.html",
+		"/Users/oidong/Projects/rakutanCore/test/rakutanCommentTest.coffee",
+		"/Users/oidong/Projects/rakutanCore/test/rakutanCheckTest.coffee",
+		"/Users/oidong/Projects/rakutanCore/actions/rakutan.coffee",
+		"/Users/oidong/Projects/rakutanCore/test/mocha.opts",
+		"/Users/oidong/Projects/rakutanCore/actions/rakutanComment.coffee",
+		"/Users/oidong/Projects/rakutanCore/actions/user.coffee",
+		"/Users/oidong/Projects/rakutanCore/test/userTest.coffee",
+		"/Users/oidong/Projects/rakutanCore/routes.js",
+		"/Users/oidong/Projects/rakutanCore/public/index.html",
+		"/Users/oidong/Projects/rakutanCore/actions/upload.coffee",
+		"/Users/oidong/Projects/rakutanCore/actions/upload.js",
+		"/Users/oidong/Projects/rakutanCore/actions/loginFacebook.coffee",
+		"/Users/oidong/Projects/rakutanCore/actions/loginTwitter.coffee",
+		"/Users/oidong/Projects/rakutanCore/public/css/actionhero.css",
+		"/Users/oidong/Projects/rakutanCore/actions/aa.coffee",
+		"/Users/oidong/Projects/rakutanCore/actions/aa.js",
+		"/Users/oidong/Projects/rakutanCore/actions/rakutanComment.js",
+		"/Users/oidong/Projects/rakutanCore/actions/user.js",
+		"/Users/oidong/Projects/rakutanCore/actions/loginFacebook.js",
+		"/Users/oidong/Projects/rakutanCore/actions/stream.coffee",
+		"/Users/oidong/Projects/rakutanCore/actions/login.coffee",
+		"/Users/oidong/Projects/sasala/package.json",
+		"/Users/oidong/Downloads/nw-sample-apps-master/file-explorer/node_modules/folder_view.js",
+		"/Users/oidong/Downloads/nw-sample-apps-master/file-explorer/index.html",
+		"/Users/oidong/Projects/sasala/theme/default/main.css",
+		"/Users/oidong/Projects/sasala/js/main.js",
+		"/Users/oidong/Projects/sasala/mitou",
+		"/Users/Shared/Dropbox/kurobeni/申請書/mitou",
+		"/Users/oidong/Projects/sasala/index.html",
+		"/Users/oidong/Downloads/nw-sample-apps-master/file-explorer/style.css",
+		"/Users/oidong/Projects/sasala/help.html",
+		"/Users/oidong/Downloads/nw-sample-apps-master/file-explorer/main.js",
+		"/Users/oidong/Downloads/nw-sample-apps-master/mp3-encoder/index.html",
+		"/Users/oidong/Library/Application Support/Sublime Text 2/Packages/User/nodewebkit.sublime-build",
+		"/Users/oidong/Projects/sasala/theme/default/reset.css",
+		"/Users/Shared/Dropbox/edu/000036084.doc",
+		"/Users/oidong/Projects/rakutanCore/config/config.js",
+		"/Users/oidong/Projects/rakutanCore/initializers/config.js",
+		"/Users/oidong/Projects/uploaderTest/uploader.js",
+		"/Users/oidong/Desktop/junk/logo_333.png",
+		"/Users/oidong/Projects/rakutanCore/actions/other.coffee",
+		"/Users/oidong/Projects/rakutanCore/uncompleted API List",
+		"/Users/oidong/Projects/rakutanCore/actions/rakutan.js",
+		"/Users/oidong/Projects/rakutanCore/test/rakutanCheckTest.js",
+		"/Users/oidong/Projects/rakutanCore/initializers/initDB.js",
+		"/Users/oidong/Projects/rakutanCore/test/rakutanStreamTest.coffee",
+		"/Users/oidong/Projects/rakutanCore/actions/stream.js",
+		"/Users/oidong/Projects/rakutanCore/test/rakutanCheck.coffee",
+		"/Users/oidong/Projects/rakutanCore/test/login.coffee",
+		"/Users/oidong/Projects/rakutanCore/test/login.js",
+		"/Users/oidong/Downloads/dat/LoginBonuss.bytes",
+		"/Users/oidong/Downloads/dat/Acheivements.bytes",
+		"/Users/oidong/Desktop/hmactest.coffee",
+		"/Users/oidong/Projects/rakutanCore/node_modules/passport/lib/framework/connect.js",
+		"/Users/oidong/Projects/rakutanCore/actions/rakutan",
+		"/Users/oidong/Projects/rakutanCore/actions/rakutanComments.coffee",
+		"/Users/oidong/Projects/rakutanCore/node_modules/passport/lib/authenticator.js",
+		"/Users/oidong/Projects/rakutanCore/actions/loginTwitter.js",
+		"/Users/oidong/Projects/rakutanCore/node_modules/passport/lib/index.js",
+		"/Users/oidong/Projects/rakutanCore/actions/tani.coffee",
+		"/Users/oidong/Projects/rakutanCore/actions/login.js",
+		"/Users/oidong/Projects/rakutanCore/apiList(temp)",
+		"/Users/oidong/Projects/nodeSandBox/fakerTest.js",
+		"/Users/oidong/Projects/rakutanCore/actions/status.js",
+		"/Users/oidong/Projects/rakutanCore/public/javascript/actionheroClient.js",
+		"/Users/oidong/Projects/rakutanCore/actions/tani.js",
+		"/Users/oidong/Projects/rakutanCore/initializers/initStuff.js",
+		"/Users/oidong/Projects/rakutanCore/util/hasher.coffee",
+		"/Users/oidong/Projects/rakutanCore/actions/test.php"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"|",
+			"console.log",
+			"this.trace[this.stepCount]",
+			"this.trace[this.stepCount-1]",
+			"value",
+			"ExecutionVisualizer",
+			"execution",
+			"executionV",
+			"exevution",
+			"@",
+			"pyInputCodeMirror",
+			"Visualize ",
+			"Visulize",
+			"Execution",
+			"Visuall",
+			"codeInputPane",
+			"codemir",
+			"code",
+			"codeMi",
+			"pyInputPane",
+			"pyInputCodeMirror",
+			"cumulativeModeSelector\npyInputCodeMirror",
+			"cumulativeModeSelector\npyInputCodeMir",
+			"cumulativeModeSelector\npyInputCodeMirror",
+			"cumulativeModeSelector",
+			".val",
+			".valu",
+			".value",
+			"codeMirror",
+			"executeBtn",
+			"inspect",
+			"console.log",
+			"sqlite",
+			"active",
+			"name",
+			"timerId",
+			"timerID",
+			"parseNode",
+			"node",
+			"timerId",
+			"data",
+			"editor",
+			"e",
+			"edit",
+			"editor",
+			"jque",
+			"jquery",
+			"jquert",
+			"map",
+			"CSS",
+			"map",
+			"fixed",
+			"graph",
+			"links",
+			"console.lgo",
+			"getRakutanChecks",
+			"css",
+			"ileup",
+			"tmp",
+			"rakutans",
+			"split",
+			"font",
+			"\n",
+			"方",
+			"checkList",
+			"result",
+			"api.User",
+			"api.",
+			"deleteComment",
+			"rawConnection",
+			"Twitter",
+			"authenticate",
+			"Twitter",
+			"getUserInfo",
+			"api.",
+			"action",
+			"users",
+			"results",
+			"crypto.createHmac('sha256', this.salt + incomingPassword).digest('hex') == this.password"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"curStep",
+			"oldStep",
+			"code",
+			"namae",
+			"users",
+			"rakutans",
+			"User",
+			"",
+			"Facebook",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/oidong/Downloads/hanabi-master/public/index.html",
+					"settings":
+					{
+						"buffer_size": 1126,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

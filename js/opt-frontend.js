@@ -25,10 +25,6 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 */
-
-// uncomment below if you're running on Google App Engine using the built-in app.yaml
-var python2_backend_script = 'exec';
-var python3_backend_script = null;
 var backend_script = 'exec';
 
 var markedLine;
@@ -43,85 +39,17 @@ var myVisualizer = null; // singleton ExecutionVisualizer instance
 
 var keyStuckDown = false;
 
-function enterEditMode() {
-  $.bbq.pushState({ mode: 'edit' }, 2 /* completely override other hash strings to keep URL clean */);
-}
-
-
 var code; // CodeMirror object that contains the input text
 
-function setCodeMirrorVal(dat) {
-  code.setValue(dat.rtrim() /* kill trailing spaces */);
-  $('#urlOutput,#embedCodeOutput').val('');
-
-  // also scroll to top to make the UI more usable on smaller monitors
-  $(document).scrollTop(0);
-}
-
+var editor = CodeMirror.fromTextArea(document.getElementById("code"), {mode: "javascript", lineNumbers: true});  
 
 $(document).ready(function() {
-
-  $("#embedLinkDiv").hide();
-
-  code = CodeMirror(document.getElementById('code'), {
-    mode: 'javascript',
-    lineNumbers: true,
-    tabSize: 4,
-    indentUnit: 4,
-    // convert tab into four spaces:
-    extraKeys: {Tab: function(cm) {cm.replaceSelection("    ", "end");}}
-  });
-
-  code.setSize(null, '420px');
-
-
-
-  // be friendly to the browser's forward and back buttons
-  // thanks to http://benalman.com/projects/jquery-bbq-plugin/
-  $(window).bind("hashchange", function(e) {
-    appMode = $.bbq.getState('mode'); // assign this to the GLOBAL appMode
-
-    if (appMode === undefined || appMode == 'edit') {
-      $("#pyInputPane").show();
-      $("#pyOutputPane").hide();
-      $("#embedLinkDiv").hide();
-
-      // destroy all annotation bubbles (NB: kludgy)
-      if (myVisualizer) {
-        myVisualizer.destroyAllAnnotationBubbles();
-      }
-    }
-    else if (appMode == 'display') {
-      $("#pyInputPane").hide();
-      $("#pyOutputPane").show();
-
-      $("#embedLinkDiv").show();
-
-      $('#executeBtn').html("done");
-      $('#executeBtn').attr('disabled', false);
-
-      // customize edit button click functionality AFTER rendering (NB: awkward!)
-      $('#pyOutputPane #editCodeLinkDiv').show();
-      $('#pyOutputPane #editBtn').click(function() {
-        enterEditMode();
-      });
-    }
-    else {
-      assert(false);
-    }
-
-    $('#urlOutput,#embedCodeOutput').val(''); // clear to avoid stale values
-  });
-
 
   $("#executeBtn").attr('disabled', false);
   $("#executeBtn").click(function() {
 
-    $('#executeBtn').html("Please wait ... processing your code");
+    $('#executeBtn').html("Please wait...");
     $('#executeBtn').attr('disabled', true);
-    $("#pyOutputPane").hide();
-    $("#embedLinkDiv").hide();
-
 
     $.get(backend_script,
           {user_script : document.getElementById("code").value,
@@ -153,11 +81,8 @@ $(document).ready(function() {
                 alert(trace[trace.length - 1].exception_msg);
               }
               else {
-                alert("Whoa, unknown error! Reload to try again, or report a bug to philip@pgbovine.net\n\n(Click the 'Generate URL' button to include a unique URL in your email bug report.)");
+                alert("Whoa, unknown error!");
               }
-
-              $('#executeBtn').html("done");
-              $('#executeBtn').attr('disabled', true);
             }
             else {
               var startingInstruction = 0;
@@ -168,8 +93,7 @@ $(document).ready(function() {
                 preseededCurInstr = null;
               }
 
-              myVisualizer = new ExecutionVisualizer('pyOutputPane',
-                                                     dataFromBackend,
+              myVisualizer = new ExecutionVisualizer(dataFromBackend,
                                                      {startingInstruction:  startingInstruction,
                                                       updateOutputCallback: function() {$('#urlOutput,#embedCodeOutput').val('');},
                                                       //allowEditAnnotations: true,
@@ -203,88 +127,20 @@ $(document).ready(function() {
               $(document).keyup(function(k) {
                 keyStuckDown = false;
               });
-
-
-              // also scroll to top to make the UI more usable on smaller monitors
-              $(document).scrollTop(0);
-
-              $.bbq.pushState({ mode: 'display' }, 2 /* completely override other hash strings to keep URL clean */);
+              $('#executeBtn').html("done");
+              $('#executeBtn').attr('disabled', true);
+              
             }
           },
           "json");
   });
-
-
-
-
-  // handle hash parameters passed in when loading the page
-  preseededCode = $.bbq.getState('code');
-  if (preseededCode) {
-    setCodeMirrorVal(preseededCode);
-  }
-  else {
-    // select a canned example on start-up:
-    $("#aliasExampleLink").trigger('click');
-  }
-
-  appMode = $.bbq.getState('mode'); // assign this to the GLOBAL appMode
-  if ((appMode == "display") && preseededCode /* jump to display only with pre-seeded code */) {
-    preseededCurInstr = Number($.bbq.getState('curInstr'));
-    $("#executeBtn").trigger('click');
-  }
-  else {
-    if (appMode === undefined) {
-      // default mode is 'edit', don't trigger a "hashchange" event
-      appMode = 'edit';
-    }
-    else {
-      // fail-soft by killing all passed-in hashes and triggering a "hashchange"
-      // event, which will then go to 'edit' mode
-      $.bbq.removeState();
-    }
-  }
-
   
   // log a generic AJAX error handler
   $(document).ajaxError(function() {
-    alert("Server error (possibly due to memory/resource overload). Report a bug to philip@pgbovine.net\n\n(Click the 'Generate URL' button to include a unique URL in your email bug report.)");
-
+    alert("Server error");
     $('#executeBtn').html("ReExecution");
     $('#executeBtn').attr('disabled', false);
   });
 
-
-  // redraw connector arrows on window resize
-  $(window).resize(function() {
-    if (appMode == 'display') {
-      myVisualizer.redrawConnectors();
-    }
-  });
-
-  $('#genUrlBtn').bind('click', function() {
-    var myArgs = {code: code.getValue(),
-                  mode: appMode,
-                  cumulative: $('#cumulativeModeSelector').val()};
-
-    if (appMode == 'display') {
-      myArgs.curInstr = myVisualizer.curInstr;
-    }
-
-    var urlStr = $.param.fragment(window.location.href, myArgs, 2 /* clobber all */);
-    $('#urlOutput').val(urlStr);
-  });
-
-
-  $('#genEmbedBtn').bind('click', function() {
-    assert(appMode == 'display');
-    var myArgs = {code: code.getValue(),
-                  cumulative: $('#cumulativeModeSelector').val(),
-                  curInstr: myVisualizer.curInstr,
-                 };
-
-    var embedUrlStr = $.param.fragment('http://pythontutor.com/iframe-embed.html', myArgs, 2 /* clobber all */);
-    var iframeStr = '<iframe width="800" height="500" frameborder="0" src="' + embedUrlStr + '"> </iframe>';
-    $('#embedCodeOutput').val(iframeStr);
-  });
 });
 

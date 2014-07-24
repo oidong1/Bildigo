@@ -7,7 +7,14 @@ h1 {
   font-size: 40px;
   font-family: 'Lobster', cursive; 
 }
+canvas {
+  z-index: 999;
+  padding: 0;
+  margin: 0;
+}
+
 #canvas { 
+  z-index: 1;
   font-family: 'Arial', cursive; 
   background-color: #fff;
   border: solid 1px #ccc;

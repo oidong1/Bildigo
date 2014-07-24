@@ -62,11 +62,11 @@
       }
       this.canvas = document.createElement('canvas');
       this.ctx = this.canvas.getContext('2d');
-      this.canvas.width = 640;
+      this.canvas.width = 480;
       this.canvas.height = 480;
       this.canvas.style.position = 'absolute';
-      this.canvas.style.left = this.x;
-      this.canvas.style.top = this.y;
+      this.canvas.style.left = this.x+"px";
+      this.canvas.style.top = this.y+"px";
       this.particles = [];
       this.frame = 0;
       for (i = _i = 0, _ref1 = this.quantity; 0 <= _ref1 ? _i < _ref1 : _i > _ref1; i = 0 <= _ref1 ? ++_i : --_i) {
