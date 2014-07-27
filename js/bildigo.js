@@ -66,7 +66,6 @@ ExecutionVisualizer.prototype.render = function() {
 ExecutionVisualizer.prototype.step = function() {
 
   return function (num){
-    fire(100,0);
     this.stepCount = this.stepCount + num;
     if(this.stepCount>this.trace.length-1 || this.stepCount<0) this.stepCount = this.stepCount-num;
 
