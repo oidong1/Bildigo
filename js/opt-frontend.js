@@ -52,7 +52,7 @@ $(document).ready(function() {
     $('#executeBtn').attr('disabled', true);
 
     $.get(backend_script,
-          {user_script : document.getElementById("code").value,
+          {user_script : editor.value,
            cumulative_mode: $('#cumulativeModeSelector').val()},
           function(dataFromBackend) {
             var trace = dataFromBackend.trace;
