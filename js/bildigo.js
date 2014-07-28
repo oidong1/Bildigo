@@ -53,6 +53,53 @@ function ExecutionVisualizer(dat, params) {
   this.displayScope=[];
 }
 
+ExecutionVisualizer.prototype.dataProcessor = function(trace) {
+  
+  var oldStep;
+  var curStep;
+  var processedData = [];
+
+  for(var i=0; i < trace.length; i++){
+    
+    console.log("step: "+i);
+
+    var stepData = {};
+
+    oldStep = (i)?trace[i-1]:trace[0];
+    curStep = trace[i];
+
+    //構造体をつくる
+    stepData.step = i;
+    stepData.line = curStep.line;
+    processedData.push(stepData); 
+
+    console.log(curStep.globals);
+
+    //ローカルスコープの取得やりたいけどまだこれから
+    if(curStep.stack_to_render[0]){
+      console.log(curStep.stack_to_render[0].encoded_locals);
+    }
+    
+    for(var item in curStep.globals) {
+      if(oldStep.globals[item] != curStep.globals[item]){
+
+        /*  dataStructureを描画するところで処理した方がいいかもしれない
+        if(oldStep.globals[item] == "undefined"){
+          console.log('defined ',item);
+        }else{
+          console.log('changed ',item);
+        }
+        */
+      }
+    }
+  }
+
+  console.log('processed');
+  console.log(processedData);
+  return processedData;
+}
+
+
 ExecutionVisualizer.prototype.render = function() {
   d3.select("#canvas").transition().duration(500).style("background-color", "black");
   svg.append("text")
