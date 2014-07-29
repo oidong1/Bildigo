@@ -47,19 +47,19 @@ for (i=0; i<data.length-1; i++)\n\
 }\n\
 ';
 
-var bogoSortExample = '
+var bogoSortExample = '\
 var shuffle = function(data) {\n\
     for(var j, x, i = data.length; i;j = Math.floor(Math.random() * i), x = data[--i], data[i] = data[j], data[j] = x);\n\
     return data;\n\
 };\n\
-\n\ 
+\n\
 var isSorted = function(data){\n\
     for(var i=1; i<data.length; i++) {\n\
         if (data[i-1] > data[i]) { return false; }\n\
     }\n\
     return true;\n\
 }\n\
- \n\
+\n\
 var bogo = function(data){\n\
     var sorted = false;\n\
     while(sorted == false){\n\
