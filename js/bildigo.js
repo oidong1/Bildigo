@@ -91,7 +91,7 @@ ExecutionVisualizer.prototype.dataProcessor = function(trace) {
     //構造体をつくる
     stepData.line = curStep.line;
     stepData.notableScope = null;
-    stepData.notableScope = curStep.globals;
+    stepData.global = curStep.globals;
     processedData.push(stepData); 
 
     console.log(curStep.globals);
