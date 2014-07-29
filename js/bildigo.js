@@ -55,6 +55,8 @@ function ExecutionVisualizer(dat, params) {
 
 ExecutionVisualizer.prototype.dataProcessor = function(trace) {
   
+  console.log(trace);
+
   var oldStep;
   var curStep;
   var processedData = [];
@@ -67,13 +69,6 @@ ExecutionVisualizer.prototype.dataProcessor = function(trace) {
 
     oldStep = (i)?trace[i-1]:trace[0];
     curStep = trace[i];
-
-    //構造体をつくる
-    stepData.step = i;
-    stepData.line = curStep.line;
-    processedData.push(stepData); 
-
-    console.log(curStep.globals);
 
     //ローカルスコープの取得やりたいけどまだこれから
     if(curStep.stack_to_render[0]){
@@ -92,6 +87,14 @@ ExecutionVisualizer.prototype.dataProcessor = function(trace) {
         */
       }
     }
+
+    //構造体をつくる
+    stepData.line = curStep.line;
+    stepData.notableScope = null;
+    stepData.notableScope = curStep.globals;
+    processedData.push(stepData); 
+
+    console.log(curStep.globals);
   }
 
   console.log('processed');
