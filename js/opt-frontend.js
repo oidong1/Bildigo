@@ -54,7 +54,7 @@ $(document).ready(function() {
     $('#executeBtn').attr('disabled', true);
 
     $.get(backend_script,
-          {user_script : editor.value,
+          {user_script : editor.getValue(),
            cumulative_mode: $('#cumulativeModeSelector').val()},
           function(dataFromBackend) {
             var trace = dataFromBackend.trace;
