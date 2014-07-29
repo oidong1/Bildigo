@@ -69,6 +69,7 @@ ExecutionVisualizer.prototype.dataProcessor = function(trace) {
 
     oldStep = (i)?trace[i-1]:trace[0];
     curStep = trace[i];
+    notableScope = null;
 
     //ローカルスコープの取得やりたいけどまだこれから
     if(curStep.stack_to_render[0]){
@@ -76,21 +77,19 @@ ExecutionVisualizer.prototype.dataProcessor = function(trace) {
     }
     
     for(var item in curStep.globals) {
-      if(oldStep.globals[item] != curStep.globals[item]){
-
-        /*  dataStructureを描画するところで処理した方がいいかもしれない
-        if(oldStep.globals[item] == "undefined"){
-          console.log('defined ',item);
-        }else{
-          console.log('changed ',item);
-        }
-        */
+      if(oldStep.globals[item] != curStep.globals[item]){ 
+        notableScope = 'global';
+        // if(oldStep.globals[item] == "undefined"){
+        //   console.log('defined ',item);
+        // }else{
+        //   console.log('changed ',item);
+        // }
       }
     }
 
     //構造体をつくる
     stepData.line = curStep.line;
-    stepData.notableScope = null;
+    stepData.notableScope = notableScope;
     stepData.global = curStep.globals;
     processedData.push(stepData); 
 
