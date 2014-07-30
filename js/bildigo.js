@@ -71,7 +71,15 @@ ExecutionVisualizer.prototype.dataProcessor = function(trace) {
       console.log(curStep.stack_to_render[0].encoded_locals);
     }
     
+    var nodes = [],
+      links = [];
+    var count = 0;
+    nodes.push({ name: "global", value: 100});
+    // 現在はグローバルのみなので
     for(var item in curStep.globals) {
+      count++;
+      nodes.push({ name: item, value: curStep.globals[item], parent:"global"});
+      links.push({ "source": 0, "target": count});
       if(oldStep.globals[item] != curStep.globals[item]){ 
         notableScope = 'global';
         // if(oldStep.globals[item] == "undefined"){
@@ -82,10 +90,10 @@ ExecutionVisualizer.prototype.dataProcessor = function(trace) {
       }
     }
 
-    //構造体をつくる
     stepData.line = curStep.line;
     stepData.notableScope = notableScope;
-    stepData.global = curStep.globals;
+    stepData.nodes = nodes;
+    stepData.links = links;
     processedData.push(stepData); 
 
     console.log(curStep.globals);
