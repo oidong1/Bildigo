@@ -1,0 +1,198 @@
+[
+	{
+		"line": 1,
+		"notableScope": null,
+		"nodes": [
+			{
+				"name": "global",
+				"value": 100
+			}
+		],
+		"links": []
+	},
+	{
+		"line": 1,
+		"notableScope": "global",
+		"nodes": [
+			{
+				"name": "a",
+				"value": "A",
+				"parent": "global"
+			}
+		],
+		"links": [
+			{
+				"source": 0,
+				"target": 1
+			}
+		]
+	},
+	{
+		"line": 3,
+		"notableScope": "global",
+		"nodes": [
+			{
+				"name": "a",
+				"value": 1,
+				"parent": "global"
+			}
+		],
+		"links": []
+	},
+	{
+		"line": 5,
+		"notableScope": null,
+		"nodes": [],
+		"links": []
+	},
+	{
+		"line": 6,
+		"notableScope": "global",
+		"nodes": [
+			{
+				"name": "a",
+				"value": 2,
+				"parent": "global"
+			}
+		],
+		"links": []
+	},
+	{
+		"line": 11,
+		"notableScope": "global",
+		"nodes": [
+			{
+				"name": "i",
+				"value": "0",
+				"parent": "global"
+			}
+		],
+		"links": [
+			{
+				"source": 0,
+				"target": 2
+			}
+		]
+	},
+	{
+		"line": 12,
+		"notableScope": "global",
+		"nodes": [
+			{
+				"name": "a",
+				"value": 3,
+				"parent": "global"
+			},
+			{
+				"name": "i",
+				"value": 1,
+				"parent": "global"
+			}
+		],
+		"links": []
+	},
+	{
+		"line": 11,
+		"notableScope": null,
+		"nodes": [],
+		"links": []
+	},
+	{
+		"line": 12,
+		"notableScope": "global",
+		"nodes": [
+			{
+				"name": "a",
+				"value": 4,
+				"parent": "global"
+			},
+			{
+				"name": "i",
+				"value": 2,
+				"parent": "global"
+			}
+		],
+		"links": []
+	},
+	{
+		"line": 11,
+		"notableScope": null,
+		"nodes": [],
+		"links": []
+	},
+	{
+		"line": 12,
+		"notableScope": "global",
+		"nodes": [
+			{
+				"name": "a",
+				"value": 5,
+				"parent": "global"
+			},
+			{
+				"name": "i",
+				"value": 3,
+				"parent": "global"
+			}
+		],
+		"links": []
+	},
+	{
+		"line": 11,
+		"notableScope": null,
+		"nodes": [],
+		"links": []
+	},
+	{
+		"line": 12,
+		"notableScope": "global",
+		"nodes": [
+			{
+				"name": "a",
+				"value": 6,
+				"parent": "global"
+			},
+			{
+				"name": "i",
+				"value": 4,
+				"parent": "global"
+			}
+		],
+		"links": []
+	},
+	{
+		"line": 11,
+		"notableScope": null,
+		"nodes": [],
+		"links": []
+	},
+	{
+		"line": 12,
+		"notableScope": "global",
+		"nodes": [
+			{
+				"name": "a",
+				"value": 7,
+				"parent": "global"
+			},
+			{
+				"name": "i",
+				"value": 5,
+				"parent": "global"
+			}
+		],
+		"links": []
+	},
+	{
+		"line": 11,
+		"notableScope": "global",
+		"nodes": [
+			{
+				"name": "__return__",
+				"value": "undefined",
+				"parent": "global"
+			}
+		],
+		"links": []
+	}
+]

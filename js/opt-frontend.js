@@ -43,6 +43,8 @@ var code; // CodeMirror object that contains the input text
 
 var editor = CodeMirror.fromTextArea(document.getElementById("code"), {mode: "javascript", lineNumbers: true});  
 
+editor.getDoc().setValue(basicExample);
+
 $(document).ready(function() {
 
   $("#executeBtn").attr('disabled', false);
@@ -52,7 +54,7 @@ $(document).ready(function() {
     $('#executeBtn').attr('disabled', true);
 
     $.get(backend_script,
-          {user_script : document.getElementById("code").value,
+          {user_script : editor.getValue(),
            cumulative_mode: $('#cumulativeModeSelector').val()},
           function(dataFromBackend) {
             var trace = dataFromBackend.trace;
