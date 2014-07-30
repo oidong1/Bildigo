@@ -9,14 +9,15 @@ var svg = d3.select("#canvas").append("svg")
 var force = d3.layout.force()
     .gravity(.050)
     .distance(100)
-    .charge(-100)
+    .charge(-300)
     .size([width, height]);
 
 d3.json("js/basicExample.json", function(error, data){
   force
       .nodes(data[13].nodes)
       .links(data[13].links);
-	
+
+	console.log(data[13].nodes);
 	var test ={
 				"name": "test",
 				"value": 10,
@@ -44,15 +45,15 @@ d3.json("js/basicExample.json", function(error, data){
   var link = d3.select("svg").selectAll(".link");
 
   update();
-  setTimeout(function(){ addNode(test,testLink); }, 1000);
-  setTimeout(function(){ addNode(test2,testLink2); }, 2000);
+  //setTimeout(function(){ addNode(test,testLink); }, 1000);
+  //setTimeout(function(){ addNode(test2,testLink2); }, 2000);
 
   force.on("tick", function() {
     noded.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
     d3.select("svg").selectAll(".fixed")
     .attr("transform", function(d) { 
     	d.x =	width/2;
-    	d.y =height/2;
+    	d.y = height/2;
     	return "translate(" + d.x + "," + d.y + ")"; 
     });
 
@@ -69,12 +70,11 @@ d3.json("js/basicExample.json", function(error, data){
   	link = d3.select("svg").selectAll(".link");
 
 		linked = link.data(force.links());
-    linked.enter().append("line")
+		linked.enter().append("line")
       .attr("class", "link");
 
   	noded = node.data(force.nodes());
-    console.log(noded);
-    noded.enter().append("g")
+    var nodeG = noded.enter().append("g")
       .attr("class", function(d) {
       	if(d.name == "global"){
       		d.fixed = true;
@@ -83,19 +83,15 @@ d3.json("js/basicExample.json", function(error, data){
       		d.fixed = false;
       		return "node";
       	}
-      } )
-      .call(drag);
-
-	  noded.append("circle")
-	      .attr("r", function(d) { return d.value*2; });
-
-	  noded.append("text")
+      } );
+    nodeG.append("text")
 	      .attr("dx", 12)
 	      .attr("dy", ".35em")
-	      .text(function(d) { return d.name });
+	      .text(function(d) { return d.name })
+    nodeG.append("circle")
+	      .attr("r", function(d) { return d.value*2; }).call(force.drag);
 
 	  noded.exit().remove();
-
 	  force.start();
 	}
 	

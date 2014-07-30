@@ -1,0 +1,491 @@
+[
+	{
+		"line": 1,
+		"notableScope": null,
+		"nodes": [
+			{
+				"name": "global",
+				"value": 1
+			},
+			{
+				"name": "a",
+				"value": "undefined",
+				"parent": "global"
+			},
+			{
+				"name": "i",
+				"value": "undefined",
+				"parent": "global"
+			}
+		],
+		"links": [
+			{
+				"source": 0,
+				"target": 1
+			},
+			{
+				"source": 0,
+				"target": 2
+			}
+		]
+	},
+	{
+		"line": 3,
+		"notableScope": "global",
+		"nodes": [
+			{
+				"name": "global",
+				"value": 100
+			},
+			{
+				"name": "a",
+				"value": "A",
+				"parent": "global"
+			},
+			{
+				"name": "i",
+				"value": "undefined",
+				"parent": "global"
+			}
+		],
+		"links": [
+			{
+				"source": 0,
+				"target": 1
+			},
+			{
+				"source": 0,
+				"target": 2
+			}
+		]
+	},
+	{
+		"line": 5,
+		"notableScope": "global",
+		"nodes": [
+			{
+				"name": "global",
+				"value": 100
+			},
+			{
+				"name": "a",
+				"value": 1,
+				"parent": "global"
+			},
+			{
+				"name": "i",
+				"value": "undefined",
+				"parent": "global"
+			}
+		],
+		"links": [
+			{
+				"source": 0,
+				"target": 1
+			},
+			{
+				"source": 0,
+				"target": 2
+			}
+		]
+	},
+	{
+		"line": 6,
+		"notableScope": null,
+		"nodes": [
+			{
+				"name": "global",
+				"value": 100
+			},
+			{
+				"name": "a",
+				"value": 1,
+				"parent": "global"
+			},
+			{
+				"name": "i",
+				"value": "undefined",
+				"parent": "global"
+			}
+		],
+		"links": [
+			{
+				"source": 0,
+				"target": 1
+			},
+			{
+				"source": 0,
+				"target": 2
+			}
+		]
+	},
+	{
+		"line": 11,
+		"notableScope": "global",
+		"nodes": [
+			{
+				"name": "global",
+				"value": 100
+			},
+			{
+				"name": "a",
+				"value": 2,
+				"parent": "global"
+			},
+			{
+				"name": "i",
+				"value": "undefined",
+				"parent": "global"
+			}
+		],
+		"links": [
+			{
+				"source": 0,
+				"target": 1
+			},
+			{
+				"source": 0,
+				"target": 2
+			}
+		]
+	},
+	{
+		"line": 12,
+		"notableScope": "global",
+		"nodes": [
+			{
+				"name": "global",
+				"value": 100
+			},
+			{
+				"name": "a",
+				"value": 2,
+				"parent": "global"
+			},
+			{
+				"name": "i",
+				"value": "0",
+				"parent": "global"
+			}
+		],
+		"links": [
+			{
+				"source": 0,
+				"target": 1
+			},
+			{
+				"source": 0,
+				"target": 2
+			}
+		]
+	},
+	{
+		"line": 11,
+		"notableScope": "global",
+		"nodes": [
+			{
+				"name": "global",
+				"value": 100
+			},
+			{
+				"name": "a",
+				"value": 3,
+				"parent": "global"
+			},
+			{
+				"name": "i",
+				"value": 1,
+				"parent": "global"
+			}
+		],
+		"links": [
+			{
+				"source": 0,
+				"target": 1
+			},
+			{
+				"source": 0,
+				"target": 2
+			}
+		]
+	},
+	{
+		"line": 12,
+		"notableScope": null,
+		"nodes": [
+			{
+				"name": "global",
+				"value": 100
+			},
+			{
+				"name": "a",
+				"value": 3,
+				"parent": "global"
+			},
+			{
+				"name": "i",
+				"value": 1,
+				"parent": "global"
+			}
+		],
+		"links": [
+			{
+				"source": 0,
+				"target": 1
+			},
+			{
+				"source": 0,
+				"target": 2
+			}
+		]
+	},
+	{
+		"line": 11,
+		"notableScope": "global",
+		"nodes": [
+			{
+				"name": "global",
+				"value": 100
+			},
+			{
+				"name": "a",
+				"value": 4,
+				"parent": "global"
+			},
+			{
+				"name": "i",
+				"value": 2,
+				"parent": "global"
+			}
+		],
+		"links": [
+			{
+				"source": 0,
+				"target": 1
+			},
+			{
+				"source": 0,
+				"target": 2
+			}
+		]
+	},
+	{
+		"line": 12,
+		"notableScope": null,
+		"nodes": [
+			{
+				"name": "global",
+				"value": 100
+			},
+			{
+				"name": "a",
+				"value": 4,
+				"parent": "global"
+			},
+			{
+				"name": "i",
+				"value": 2,
+				"parent": "global"
+			}
+		],
+		"links": [
+			{
+				"source": 0,
+				"target": 1
+			},
+			{
+				"source": 0,
+				"target": 2
+			}
+		]
+	},
+	{
+		"line": 11,
+		"notableScope": "global",
+		"nodes": [
+			{
+				"name": "global",
+				"value": 100
+			},
+			{
+				"name": "a",
+				"value": 5,
+				"parent": "global"
+			},
+			{
+				"name": "i",
+				"value": 3,
+				"parent": "global"
+			}
+		],
+		"links": [
+			{
+				"source": 0,
+				"target": 1
+			},
+			{
+				"source": 0,
+				"target": 2
+			}
+		]
+	},
+	{
+		"line": 12,
+		"notableScope": null,
+		"nodes": [
+			{
+				"name": "global",
+				"value": 100
+			},
+			{
+				"name": "a",
+				"value": 5,
+				"parent": "global"
+			},
+			{
+				"name": "i",
+				"value": 3,
+				"parent": "global"
+			}
+		],
+		"links": [
+			{
+				"source": 0,
+				"target": 1
+			},
+			{
+				"source": 0,
+				"target": 2
+			}
+		]
+	},
+	{
+		"line": 11,
+		"notableScope": "global",
+		"nodes": [
+			{
+				"name": "global",
+				"value": 100
+			},
+			{
+				"name": "a",
+				"value": 6,
+				"parent": "global"
+			},
+			{
+				"name": "i",
+				"value": 4,
+				"parent": "global"
+			}
+		],
+		"links": [
+			{
+				"source": 0,
+				"target": 1
+			},
+			{
+				"source": 0,
+				"target": 2
+			}
+		]
+	},
+	{
+		"line": 12,
+		"notableScope": null,
+		"nodes": [
+			{
+				"name": "global",
+				"value": 10
+			},
+			{
+				"name": "a",
+				"value": 6,
+				"parent": "global"
+			},
+			{
+				"name": "i",
+				"value": 4,
+				"parent": "global"
+			}
+		],
+		"links": [
+			{
+				"source": 0,
+				"target": 1
+			},
+			{
+				"source": 0,
+				"target": 2
+			}
+		]
+	},
+	{
+		"line": 11,
+		"notableScope": "global",
+		"nodes": [
+			{
+				"name": "global",
+				"value": 5
+			},
+			{
+				"name": "a",
+				"value": 7,
+				"parent": "global"
+			},
+			{
+				"name": "i",
+				"value": 5,
+				"parent": "global"
+			}
+		],
+		"links": [
+			{
+				"source": 0,
+				"target": 1
+			},
+			{
+				"source": 0,
+				"target": 2
+			}
+		]
+	},
+	{
+		"line": 11,
+		"notableScope": "global",
+		"nodes": [
+			{
+				"name": "global",
+				"value": 5
+			},
+			{
+				"name": "a",
+				"value": 7,
+				"parent": "global"
+			},
+			{
+				"name": "i",
+				"value": 5,
+				"parent": "global"
+			},
+			{
+				"name": "__return__",
+				"value": "undefined",
+				"parent": "global"
+			}
+		],
+		"links": [
+			{
+				"source": 0,
+				"target": 1
+			},
+			{
+				"source": 0,
+				"target": 2
+			},
+			{
+				"source": 0,
+				"target": 3
+			}
+		]
+	}
+]

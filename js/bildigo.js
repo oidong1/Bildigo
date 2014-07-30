@@ -74,19 +74,21 @@ ExecutionVisualizer.prototype.dataProcessor = function(trace) {
     var nodes = [],
       links = [];
     var count = 0;
-    nodes.push({ name: "global", value: 100});
+    if(i == 0)  nodes.push({ name: "global", value: 100});
     // 現在はグローバルのみなので
     for(var item in curStep.globals) {
       count++;
-      nodes.push({ name: item, value: curStep.globals[item], parent:"global"});
-      links.push({ "source": 0, "target": count});
       if(oldStep.globals[item] != curStep.globals[item]){ 
         notableScope = 'global';
-        // if(oldStep.globals[item] == "undefined"){
-        //   console.log('defined ',item);
-        // }else{
-        //   console.log('changed ',item);
-        // }
+        
+        if(oldStep.globals[item] == "undefined"){          
+          nodes.push({ name: item, value: curStep.globals[item], parent:"global"});
+          links.push({ "source": 0, "target": count});
+          console.log('defined ',item);
+        }else{
+          nodes.push({ name: item, value: curStep.globals[item], parent:"global"});
+          console.log('changed ',item);
+        }
       }
     }
 
@@ -100,7 +102,7 @@ ExecutionVisualizer.prototype.dataProcessor = function(trace) {
   }
 
   console.log('processed');
-  console.log(processedData);
+  console.log(JSON.stringify(processedData));
   return processedData;
 }
 

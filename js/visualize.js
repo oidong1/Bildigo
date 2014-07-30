@@ -27,38 +27,6 @@ var init = function(){
 	$("#canvas>svg").attr("height",height);
 }
 
-/*
-var int_data = function(name,value,x,y,scale){
-	var g = d3.select("#svg").append("g");
-	g.attr("class","variable");
-	g.attr("transform","translate("+x+","+y+")");
-
-	var r;
-	if(value<0)r=-value;
-	else r=value;
-
-	console.log(calc_radius(r));
-	var cir = g.append("circle");
-	cir.attr("r",calc_radius(r)*scale);
-	cir.attr("style","fill: rgb(255,255,255);stroke: rgb(255,0,0);");
-
-	var inner_cir = g.append("circle");
-	inner_cir.attr("r",20);
-	inner_cir.attr("style","fill: rgb(255,0,0);");
-
-	var txt = g.append("text");
-	if(value>0)
-		txt.text("+");
-	else if(value<0)
-		txt.text("-");
-	else if(value==0)
-		txt.text("0");
-	txt.attr("class","plus_minus");
-	txt.attr("style","font-size: 45px;color:white");
-	txt.attr("dy","0.35em");
-	txt.attr("text-anchor","middle");
-}*/
-
 var int_data = function(name,value,x,y){
 	var ab_value=0;
 	var plus_minus;
@@ -120,11 +88,6 @@ var int_data = function(name,value,x,y){
 	value_text.text(value);
 	value_text.attr("dy","2.7em");
 	value_text.attr("text-anchor","middle");
-/*
-	var outer_cir = under_cir.append("circle");
-	outer_cir.attr("r",r);
-	outer_cir.attr("style","fill:rgb(255,0,0)");
-*/
 }
 
 var calc_radius = function(value){

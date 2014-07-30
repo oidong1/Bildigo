@@ -31,3 +31,17 @@ canvas {
 .highlighted-line {
   background-color: #ccc;
 }
+
+/* for D3.js */
+.link {
+  stroke: #ccc;
+}
+
+.fixed circle {
+  fill: SkyBlue;
+}
+
+.node text {
+  pointer-events: none;
+  font: 10px sans-serif;
+}
