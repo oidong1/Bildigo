@@ -35,6 +35,14 @@ canvas {
 /* for D3.js */
 .link {
   stroke: #ccc;
+  color: white;
+}
+.name {
+  font-size: 15px;
+}
+.value {
+  font-size: 18px;
+  fill: white;
 }
 
 .fixed circle {

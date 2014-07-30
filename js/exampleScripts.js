@@ -32,7 +32,7 @@ f();\n\
 ';
 
 var bubbleSortExample = '\
-var data = [100,321,41,41423,542,132,-123,-341];\n\
+var data = [100,321,41];\n\
 for (i=0; i<data.length-1; i++)\n\
 {\n\
 	for (j=0; j<data.length-i-1; j++)\n\

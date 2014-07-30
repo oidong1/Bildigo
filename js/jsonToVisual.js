@@ -14,9 +14,9 @@ var force = d3.layout.force()
 
 d3.json("js/basicExample.json", function(error, data){
   force
-      .nodes(data[13].nodes)
-      .links(data[13].links);
-
+      .nodes(data[0].nodes)
+      .links(data[0].links);
+	var stepCount = 0;
 	var test ={
 				"name": "test",
 				"value": 10,
@@ -46,10 +46,10 @@ d3.json("js/basicExample.json", function(error, data){
   var	noded = node.data(force.nodes());
 
   update();
-  setTimeout(function(){ addNode(test,testLink); }, 1000);
-  setTimeout(function(){ addNode(test2,testLink2); }, 2000);
-  //data[13].nodes[0].value = 100;
-  updateNode({"name": "global","value": 100});
+  // setTimeout(function(){ addNode(test,testLink); }, 1000);
+  // setTimeout(function(){ addNode(test2,testLink2); }, 2000);
+  setInterval(function(){ next(1); }, 1000);
+  //updateNode({"name": "global","value": 100});
  	update();
 
   force.on("tick", function() {
@@ -87,10 +87,6 @@ d3.json("js/basicExample.json", function(error, data){
       		return "node";
       	}
       } ).call(force.drag);
-    nodeG.append("text")
-	      .attr("dx", 12)
-	      .attr("dy", ".35em")
-	      .text(function(d) { return d.name })
     nodeC = nodeG.append("circle")
 	      .attr("r", function(d) { console.log(d.value); return d.value*2; });
 
@@ -98,25 +94,44 @@ d3.json("js/basicExample.json", function(error, data){
 	    .duration(1000)
 	    .attr("r", function(d) { console.log(d.value); return d.value*2; });
 
+    nodeG.append("text")
+	      .attr("dx", 12)
+	      .attr("dy", ".35em")
+	      .text(function(d) { return d.name })
+
 	  noded.exit().remove();
 	  force.start();
 	}
 	
 	function addNode(nodeData,linkData) {
-		data[13].nodes.push(nodeData);
- 		data[13].links.push(linkData);
+		data[0].nodes.push(nodeData);
+ 		data[0].links.push(linkData);
   	update();
 	}
+
 	function updateNode(nodeData) {
-		for(var i =0; i<data[13].nodes.length; i++){
-			console.log(data[13].nodes[i]);
-			if(data[13].nodes[i].name == nodeData.name){
-				data[13].nodes[i].value = nodeData.value;
+		for(var i =0; i<data[0].nodes.length; i++){
+			if(data[0].nodes[i].name == nodeData.name){
+				data[0].nodes[i].value = nodeData.value;
 			}
 		}
   	update();
 	}
-
+	function next(step){		
+		stepCount += step;
+		if(stepCount>data.length-1 || stepCount<0) stepCount = stepCount-step;
+		console.log(stepCount);
+		//	linksがあればdefineでaddNode、なければ変更でupdateNode
+		if(data[stepCount].links.length==0){
+			console.log(data[stepCount].nodes);
+			for(var i in data[stepCount].nodes){
+				updateNode(data[stepCount].nodes[i]);
+			}
+		}else{
+			console.log(data[stepCount].nodes[0]);
+			addNode(data[stepCount].nodes[0],data[stepCount].links[0]);
+		}
+	}
 	function dragstart(d) {
 	}
 });
