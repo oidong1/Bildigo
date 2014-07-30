@@ -90,7 +90,7 @@ ExecutionVisualizer.prototype.dataProcessor = function(trace) {
       }
     }
 
-    stepData.line = curStep.line;
+    stepData.line = oldStep.line;
     stepData.notableScope = notableScope;
     stepData.nodes = nodes;
     stepData.links = links;
