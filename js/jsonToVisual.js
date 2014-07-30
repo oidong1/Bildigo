@@ -17,7 +17,6 @@ d3.json("js/basicExample.json", function(error, data){
       .nodes(data[13].nodes)
       .links(data[13].links);
 
-	console.log(data[13].nodes);
 	var test ={
 				"name": "test",
 				"value": 10,
@@ -43,10 +42,15 @@ d3.json("js/basicExample.json", function(error, data){
 
   var node = d3.select("svg").selectAll(".node");
   var link = d3.select("svg").selectAll(".link");
+	var	linked = link.data(force.links());
+  var	noded = node.data(force.nodes());
 
   update();
-  //setTimeout(function(){ addNode(test,testLink); }, 1000);
-  //setTimeout(function(){ addNode(test2,testLink2); }, 2000);
+  setTimeout(function(){ addNode(test,testLink); }, 1000);
+  setTimeout(function(){ addNode(test2,testLink2); }, 2000);
+  //data[13].nodes[0].value = 100;
+  updateNode({"name": "global","value": 100});
+ 	update();
 
   force.on("tick", function() {
     noded.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
@@ -65,16 +69,15 @@ d3.json("js/basicExample.json", function(error, data){
 	// node.select(".fixed").attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
 	
 	function update(){
-		
 		node = d3.select("svg").selectAll(".node");
   	link = d3.select("svg").selectAll(".link");
 
 		linked = link.data(force.links());
+  	noded = node.data(force.nodes());
 		linked.enter().append("line")
       .attr("class", "link");
 
-  	noded = node.data(force.nodes());
-    var nodeG = noded.enter().append("g")
+    nodeG = noded.enter().append("g")
       .attr("class", function(d) {
       	if(d.name == "global"){
       		d.fixed = true;
@@ -83,22 +86,34 @@ d3.json("js/basicExample.json", function(error, data){
       		d.fixed = false;
       		return "node";
       	}
-      } );
+      } ).call(force.drag);
     nodeG.append("text")
 	      .attr("dx", 12)
 	      .attr("dy", ".35em")
 	      .text(function(d) { return d.name })
-    nodeG.append("circle")
-	      .attr("r", function(d) { return d.value*2; }).call(force.drag);
+    nodeC = nodeG.append("circle")
+	      .attr("r", function(d) { console.log(d.value); return d.value*2; });
+
+	  noded.select("circle").transition()
+	    .duration(1000)
+	    .attr("r", function(d) { console.log(d.value); return d.value*2; });
 
 	  noded.exit().remove();
 	  force.start();
 	}
 	
 	function addNode(nodeData,linkData) {
-		console.log("hello");
 		data[13].nodes.push(nodeData);
  		data[13].links.push(linkData);
+  	update();
+	}
+	function updateNode(nodeData) {
+		for(var i =0; i<data[13].nodes.length; i++){
+			console.log(data[13].nodes[i]);
+			if(data[13].nodes[i].name == nodeData.name){
+				data[13].nodes[i].value = nodeData.value;
+			}
+		}
   	update();
 	}
 
