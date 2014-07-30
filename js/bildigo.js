@@ -19,24 +19,19 @@ svg = d3.select("#canvas").append("svg");
     {
       "line" : 1,   //executed
       "notableScope": null,
-      "global" : {
-        "a" : 1,
-        "i" : undefined,
-        "func" : {
-          "testVar" : 1
-        }
-      }
-    },
-    {
-      "line" : 1,   //executed
-      "notableScope": "func",
-      "global" : {
-        "a" : 1,
-        "i" : undefined,
-        "func" : {
-          "testVar" : 1
-        }
-      }
+      "nodes" : [
+        { name: global, value: 100}
+        { name: "a", value: 1, parent: global},
+        { name: "i", value: undefined, parent: global},
+        { name: "func", value : <<RAW VALUE>>, parent: global},
+        { name: "testVar", value: 1, parent: "func"}
+      ],
+      "links" : [
+        { source:0, target:1 }
+        { source:0, target:2 }
+        { source:0, target:3 }
+        { source:3, target:3 }
+      ]
     }
   ]
 
